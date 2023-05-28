@@ -21,10 +21,15 @@ const app = express();
 app.use(express.json());
 app.use(cookieParser());
 app.use(express.urlencoded({ extended: false }));
-app.use(cors());
+app.use(
+	cors({
+		origin: "http://localhost:5173",
+		credentials: true,
+	})
+);
 // routes
 app.use("/api/v1/user", userRouter);
-app.use("/api/v1/auth",authRouter);
+app.use("/api/v1/auth", authRouter);
 // error handler
 app.use(errorHandler);
 
