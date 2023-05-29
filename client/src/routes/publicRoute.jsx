@@ -1,10 +1,11 @@
 import { createBrowserRouter } from "react-router-dom";
 import Login from "../components/Auth/Login";
-import Registration from "../components/Auth/Registration";
+
 import Profile from "../components/Profile/Profile";
 import Changepassword from "../components/Profile/ChangePassword";
 import ChangePhoto from "../components/Profile/ChangePhoto";
 import User from "../features/User/User";
+import Adduser from "../features/User/Adduser";
 
 
 const publicRouter = createBrowserRouter([
@@ -14,7 +15,7 @@ const publicRouter = createBrowserRouter([
 	},
 	{
 		path: "/register",
-		element: <Registration />,
+		element: <Adduser />,
 	},
 	{
 		path: "/profile",
@@ -29,11 +30,9 @@ const publicRouter = createBrowserRouter([
 		element: <ChangePhoto />,
 	},
 	{
-		path:"/",
+		path: "/",
 		element: <User />,
-	}
-
-
+	},
 ]);
 
 export default publicRouter;

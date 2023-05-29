@@ -10,3 +10,16 @@ export const fetchAllUsers = createAsyncThunk(
 		return response.data;
 	}
 );
+
+// create a new user
+
+export const createNewUser = createAsyncThunk(
+	"user/createNewUser",
+	async (data) => {
+		const response = await axios.post(
+			"http://localhost:5050/api/v1/user/create",
+			data
+		);
+		return response.data;
+	}
+);

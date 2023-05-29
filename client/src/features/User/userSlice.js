@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { fetchAllUsers } from "./userApi";
+import { createNewUser, fetchAllUsers } from "./userApi";
 
 export const userSlice = createSlice({
 	name: "user",
@@ -21,11 +21,23 @@ export const userSlice = createSlice({
 			})
 			.addCase(fetchAllUsers.rejected, (state, { type, payload }) => {
 				state.loading = false;
+			})
+			.addCase(createNewUser.pending, (state, { type, payload }) => {
+				state.loading = true;
+			})
+			.addCase(createNewUser.fulfilled, (state, { type, payload }) => {
+				state.loading = false;
+				state.users.push(payload.user);
+			})
+			.addCase(createNewUser.rejected, (state, { type, payload }) => {
+				state.loading = false;
 			});
 	},
 });
 
 // export slice selectors
+
+export const getAllusersdata = (state) => state.user;
 
 // slice exports
 export const {} = userSlice.actions;
