@@ -26,6 +26,14 @@ const userSchema = mongoose.Schema(
 			type: String,
 			enum: ["Admin", "Editor", "User"],
 		},
+		location: {
+			type: String,
+			default: null,
+		},
+		phone: {
+			type: String,
+			default: null,
+		},
 		active: {
 			type: Boolean,
 			default: true,

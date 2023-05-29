@@ -4,6 +4,7 @@ import Registration from "../components/Auth/Registration";
 import Profile from "../components/Profile/Profile";
 import Changepassword from "../components/Profile/ChangePassword";
 import ChangePhoto from "../components/Profile/ChangePhoto";
+import User from "../features/User/User";
 
 
 const publicRouter = createBrowserRouter([
@@ -16,7 +17,7 @@ const publicRouter = createBrowserRouter([
 		element: <Registration />,
 	},
 	{
-		path: "/",
+		path: "/profile",
 		element: <Profile />,
 	},
 	{
@@ -27,6 +28,12 @@ const publicRouter = createBrowserRouter([
 		path: "/change-photo",
 		element: <ChangePhoto />,
 	},
+	{
+		path:"/",
+		element: <User />,
+	}
+
+
 ]);
 
 export default publicRouter;
