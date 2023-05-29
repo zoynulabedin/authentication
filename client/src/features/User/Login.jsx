@@ -1,14 +1,37 @@
-
 import { BsFacebook, BsGithub, BsGoogle } from "react-icons/bs";
 
-import { Link } from "react-router-dom";
+import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
 import loginImg from "../../assets/images/01.jpg";
+import { loginUser } from "./userApi";
 
 const Login = () => {
+    const [input,setInput] = useState({
+        email: "",
+        password: "",
+    })
+     const dispatch = useDispatch();
+    const navigate = useNavigate();
+
+    const handleInputchange = (e) => {
+       
+        setInput((preveState) => (
+                {
+                ...preveState,
+                [e.target.name] : e.target.value
+            }
+            ));
+    };
 
 
 
-
+    const handleSubmitLogin = (e) => {
+        e.preventDefault();
+        dispatch(loginUser(input)).then(() => {
+        navigate("/profile");
+        })
+    };
 	return (
 		<>
 			<div className="auth-body">
@@ -19,14 +42,14 @@ const Login = () => {
 					<div className="auth-form">
 						<h2>Sign In</h2>
 						<div className="form-wraper">
-							<form >
+							<form onSubmit={handleSubmitLogin}>
 								<div className="form-group">
 									<label htmlFor="email">Email</label>
 									<input
 										id="email"
-										value=""
+										value={input.email}
 										name="email"
-										onChange=""
+										onChange={handleInputchange}
 										type="text"
 									/>
 								</div>
@@ -34,9 +57,9 @@ const Login = () => {
 									<label htmlFor="pass">Password</label>
 									<input
 										id="pass"
-										value=""
+										value={input.password}
 										name="password"
-										onChange=""
+										onChange={handleInputchange}
 										type="password"
 									/>
 								</div>

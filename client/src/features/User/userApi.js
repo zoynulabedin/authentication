@@ -23,3 +23,30 @@ export const createNewUser = createAsyncThunk(
 		return response.data;
 	}
 );
+
+//login
+
+export const loginUser = createAsyncThunk("user/loginUser", async (data) => {
+	const response = await axios.post(
+		"http://localhost:5050/api/v1/auth/login",
+		data,
+		{ withCredentials: true }
+	);
+    
+	return response.data;
+});
+
+// user loggout
+
+export const loggOut = createAsyncThunk(
+	"user/loggOut",
+	async (data) => {
+		const response = await axios.post(
+			"http://localhost:5050/api/v1/auth/loggout",
+			data,
+			{ withCredentials: true }
+		);
+		
+		return response.data;
+	}
+);

@@ -1,11 +1,12 @@
 import { createBrowserRouter } from "react-router-dom";
-import Login from "../components/Auth/Login";
 
-import Profile from "../components/Profile/Profile";
-import Changepassword from "../components/Profile/ChangePassword";
-import ChangePhoto from "../components/Profile/ChangePhoto";
-import User from "../features/User/User";
+
+import Changepassword from "../features/User/ChangePassword";
+import ChangePhoto from "../features/User/ChangePhoto";
+import Profile from "../features/User/Profile";
 import Adduser from "../features/User/Adduser";
+import Login from "../features/User/Login";
+import User from "../features/User/User";
 
 
 const publicRouter = createBrowserRouter([

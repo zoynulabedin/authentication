@@ -15,15 +15,15 @@ const Header = () => {
 						className="me-auto my-2 my-lg-0"
 						style={{ maxHeight: "100px" }}
 						navbarScroll>
-						<Nav.Link href="#action1">Users</Nav.Link>
-						<Nav.Link href="#action2">Profile</Nav.Link>
+						<Nav.Link href="/">Users</Nav.Link>
+						<Nav.Link href="/profile">Profile</Nav.Link>
 					</Nav>
 
 					<Nav
 						className="me-auto my-2 my-lg-0 d-flex justify-content-end"
 						style={{ maxHeight: "100px" }}
 						navbarScroll>
-						<Nav.Link href="#action1">Sign In</Nav.Link>
+						<Nav.Link href="/login">Sign In</Nav.Link>
 						<Nav.Link href="/register">Sign up</Nav.Link>
 					</Nav>
 				</Navbar.Collapse>

@@ -1,15 +1,24 @@
 
-import { Link } from "react-router-dom";
+import cookies from "js-cookie";
+import { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
 import avatar from "../../assets/images/avatar.png";
-
+import { loggOut } from "./userApi";
 
 const Profile = () => {
 
-
+	const dispatch = useDispatch();
+	const navigate = useNavigate();
 	const handleUserLoggout = (e) => {
 		e.preventDefault();
-		
+		dispatch(loggOut()).then(() => {
+		navigate("/login")
+		})
 	};
+
+
+
 	return (
 		<div className="profile-body">
 			<div className="profile-wraper">
