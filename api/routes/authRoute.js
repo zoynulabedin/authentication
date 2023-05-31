@@ -5,6 +5,6 @@ const authRouter = express.Router();
 
 authRouter.route("/login").post(UserLogin);
 authRouter.route("/me").get(tokenVerify,me);
-authRouter.route("/loggout").post(userLoggout);
+authRouter.route("/loggout").get(userLoggout);
 
 module.exports = authRouter;

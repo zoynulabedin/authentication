@@ -1,10 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
 import {
+	UserData,
 	createNewUser,
 	fetchAllUsers,
 	loggOut,
 	loginUser,
-	userLogin,
 } from "./userApi";
 
 export const userSlice = createSlice({
@@ -44,17 +44,17 @@ export const userSlice = createSlice({
 			})
 			.addCase(loginUser.fulfilled, (state, { type, payload }) => {
 				state.loading = false;
-				state.loginState = true;
+				state.loginState = false;
 				state.users = payload;
 			})
 			.addCase(loggOut.fulfilled, (state, { type, payload }) => {
 				state.loading = false;
 				state.loginState = false;
 			})
-			.addCase(userLogin.pending, (state, { type, payload }) => {
+			.addCase(UserData.pending, (state, { type, payload }) => {
 				state.loading = true;
 			})
-			.addCase(userLogin.fulfilled, (state, { type, payload }) => {
+			.addCase(UserData.fulfilled, (state, { type, payload }) => {
 				state.loading = false;
 				state.loginState = true;
 				state.users = payload;

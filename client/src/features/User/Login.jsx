@@ -67,17 +67,17 @@ const Login = () => {
 							</form>
 						</div>
 						<div className="utility">
-							<Link to="#">Forgot password</Link>
+							<Link to="##">Forgot password</Link>
 							<Link to="/register">Create an account</Link>
 						</div>
 						<div className="social-login">
-							<Link to="#">
+							<Link to="##">
 								<BsFacebook />
 							</Link>
-							<Link to="#">
+							<Link to="##">
 								<BsGoogle />
 							</Link>
-							<Link to="#">
+							<Link to="##">
 								<BsGithub />
 							</Link>
 						</div>

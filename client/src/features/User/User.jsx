@@ -1,17 +1,15 @@
-import { useEffect } from "react";
+
 import { Button, Card, Container, Form, Row } from "react-bootstrap";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import Header from "../../components/Header/Header";
-import { fetchAllUsers } from "./userApi";
+
 import { getAllusersdata } from "./userSlice";
 const User = () => {
-    const dispatch = useDispatch();
+   
     const { users,loading } = useSelector(getAllusersdata);
    
-    useEffect(() => {
-        dispatch(fetchAllUsers())
-    },[dispatch]);
-
+   
+	console.log(users);
   return (
 		<>
         {loading && "<h1>Loading ...</h1>"}
@@ -25,8 +23,8 @@ const User = () => {
                     </div>
                 </Row>
 				<Row className="justify-content-center">
-					{users.length > 0
-						? users.map((item, index) => {
+					{users?.length > 0
+						? users?.map((item, index) => {
 								return (
 									<>
 										<div className="col-md-3" key={index}>

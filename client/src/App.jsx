@@ -6,15 +6,17 @@ import { RouterProvider } from "react-router-dom";
 import "toastr";
 import "./App.css";
 import "./assets/style.css";
-import { userLogin } from "./features/User/userApi";
+import { UserData, fetchAllUsers } from "./features/User/userApi";
 import publicRouter from "./routes/publicRoute";
 
 function App() {
 	const dispatch = useDispatch();
 	useEffect(() => {
 		const token = Cookies.get("accessToken");
-		dispatch(userLogin(token));
-	}, [dispatch]);
+		dispatch(UserData(token));
+		dispatch(fetchAllUsers());
+	}, []);
+
 
 	return (
 		<>

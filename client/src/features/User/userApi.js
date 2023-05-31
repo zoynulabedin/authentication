@@ -38,10 +38,10 @@ export const loginUser = createAsyncThunk("user/loginUser", async (data) => {
 
 // user loggout
 
-export const loggOut = createAsyncThunk("user/loggOut", async (data) => {
-	const response = await axios.post(
+export const loggOut = createAsyncThunk("user/loggOut", async () => {
+	const response = await axios.get(
 		"http://localhost:5050/api/v1/auth/loggout",
-		data,
+		
 		{ withCredentials: true }
 	);
 
@@ -50,7 +50,7 @@ export const loggOut = createAsyncThunk("user/loggOut", async (data) => {
 
 // User login
 
-export const userLogin = createAsyncThunk("user/userLogin", async (token) => {
+export const UserData = createAsyncThunk("user/UserData", async (token) => {
 	const response = await axios.get("http://localhost:5050/api/v1/auth/me", {
 		headers: {
 			Authorization: `Bearer ${token}`,

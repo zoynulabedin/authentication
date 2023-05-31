@@ -15,6 +15,7 @@ const publicRouter = createBrowserRouter([
 				path: "/profile",
 				element: <Profile />,
 			},
+			
 		],
 	},
 	{
