@@ -2,7 +2,7 @@ import { BsFacebook, BsGithub, BsGoogle } from "react-icons/bs";
 
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import loginImg from "../../assets/images/01.jpg";
 import { loginUser } from "./userApi";
 
@@ -12,7 +12,7 @@ const Login = () => {
         password: "",
     })
      const dispatch = useDispatch();
-    const navigate = useNavigate();
+   
 
     const handleInputchange = (e) => {
        
@@ -28,9 +28,7 @@ const Login = () => {
 
     const handleSubmitLogin = (e) => {
         e.preventDefault();
-        dispatch(loginUser(input)).then(() => {
-        navigate("/profile");
-        })
+        dispatch(loginUser(input));
     };
 	return (
 		<>

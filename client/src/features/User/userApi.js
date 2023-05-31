@@ -32,21 +32,30 @@ export const loginUser = createAsyncThunk("user/loginUser", async (data) => {
 		data,
 		{ withCredentials: true }
 	);
-    
+
 	return response.data;
 });
 
 // user loggout
 
-export const loggOut = createAsyncThunk(
-	"user/loggOut",
-	async (data) => {
-		const response = await axios.post(
-			"http://localhost:5050/api/v1/auth/loggout",
-			data,
-			{ withCredentials: true }
-		);
-		
-		return response.data;
-	}
-);
+export const loggOut = createAsyncThunk("user/loggOut", async (data) => {
+	const response = await axios.post(
+		"http://localhost:5050/api/v1/auth/loggout",
+		data,
+		{ withCredentials: true }
+	);
+
+	return response.data;
+});
+
+// User login
+
+export const userLogin = createAsyncThunk("user/userLogin", async (token) => {
+	const response = await axios.get("http://localhost:5050/api/v1/auth/me", {
+		headers: {
+			Authorization: `Bearer ${token}`,
+		},
+	});
+
+	return response.data.me;
+});

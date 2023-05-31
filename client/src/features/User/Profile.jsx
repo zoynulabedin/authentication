@@ -1,21 +1,21 @@
 
-import cookies from "js-cookie";
-import { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
-import { Link, useNavigate } from "react-router-dom";
+
+import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import avatar from "../../assets/images/avatar.png";
 import { loggOut } from "./userApi";
+import { getAllusersdata } from "./userSlice";
 
 const Profile = () => {
 
 	const dispatch = useDispatch();
-	const navigate = useNavigate();
+	const {users} = useSelector(getAllusersdata);
+
 	const handleUserLoggout = (e) => {
 		e.preventDefault();
-		dispatch(loggOut()).then(() => {
-		navigate("/login")
-		})
+		dispatch(loggOut());
 	};
+
 
 
 
@@ -25,7 +25,7 @@ const Profile = () => {
 				<div className="profile-info">
 					<div className="user info">
 						<img src={avatar} alt="" />
-						<h3>zoynul</h3>
+						{users?.name && <h3>{users?.name}</h3>}
 					</div>
 
 					<div className="user-menu">
@@ -62,7 +62,7 @@ const Profile = () => {
 					<div className="profile-details">
 						<div className="profile-photo">
 							<img src={avatar} alt="" />
-							<h2>zoynul</h2>
+							{users?.name && <h2>{users?.name}</h2>}
 						</div>
 					</div>
 				</div>
